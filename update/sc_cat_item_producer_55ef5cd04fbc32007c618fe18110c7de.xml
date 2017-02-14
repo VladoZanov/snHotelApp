@@ -46,6 +46,7 @@
         <script><![CDATA[//producer.redirect = "catalog_home.do?sysparm_catalog=e0d08b13c3330100c8b837659bba8fb4";
 gs.addInfoMessage('Your maintenance request has been received. The reference number is ' + current.number + '. A member of the team will contact you shortly!');]]></script>
         <short_description>Submit a Room Maintenance issue</short_description>
+        <show_variable_help_on_load>false</show_variable_help_on_load>
         <start_closed>false</start_closed>
         <sys_class_name>sc_cat_item_producer</sys_class_name>
         <sys_created_by>admin</sys_created_by>

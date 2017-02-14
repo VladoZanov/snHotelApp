@@ -3,6 +3,7 @@
     <sys_dictionary action="INSERT_OR_UPDATE" element="guest" table="x_89842_hotel_m2m_guests_reservations">
         <active>true</active>
         <array>false</array>
+        <array_denormalized>false</array_denormalized>
         <attributes/>
         <audit>false</audit>
         <calculation/>
