@@ -13,7 +13,7 @@
         <change_fields>false</change_fields>
         <client_callable>false</client_callable>
         <collection>x_89842_hotel_maintenance</collection>
-        <condition>!current.assignment_group.isNil() &amp;&amp; current.assignment_group. changesTo(gs.getProperty('maintenance.external_group'))</condition>
+        <condition>!current.assignment_group.nil()  &amp;&amp;  current.assignment_group.changes() &amp;&amp; current.assignment_group.getDisplayValue() == gs.getProperty('x_89842_hotel.maintenance.external_group') </condition>
         <description/>
         <execute_function>false</execute_function>
         <filter_condition/>
@@ -28,7 +28,14 @@
         <rest_service_text/>
         <rest_variables/>
         <role_conditions/>
-        <script><![CDATA[(function executeRule(current, previous /*null when async*/) {
+        <script><![CDATA[//OLD -> !current.assignment_group.nil() && current.assignment_group.changesTo(gs.getProperty('x_89842_hotel.maintenance.external_group'))
+(function executeRule(current, previous /*null when async*/) {
+	gs.debug('current.assignment_group->{0}',current.assignment_group.getDisplayValue()); 
+    gs.debug('x_89842_hotel.maintenance.external_group->{0}', gs.getProperty('x_89842_hotel.maintenance.external_group')); 
+	gs.debug('current.assignment_group.changesTo()->{0}',                  
+			  current.assignment_group.changesTo(gs.getProperty('x_89842_hotel.maintenance.external_group')));
+    //gs.info('current.assignment_group->{0}',current.assignment_group.getDisplayValue()); 
+    //gs.info('x_89842_hotel.maintenance.external_group->{0}', gs.getProperty('x_89842_hotel.maintenance.external_group')); 
 
 	var s = new SOAPMessage('CHS', 'create');
 	s.setStringParameter('room', current.u_room.getDisplayValue());
@@ -52,7 +59,7 @@
         <sys_domain>global</sys_domain>
         <sys_domain_path>/</sys_domain_path>
         <sys_id>a885cd2b4f3c72007c618fe18110c7c4</sys_id>
-        <sys_mod_count>0</sys_mod_count>
+        <sys_mod_count>24</sys_mod_count>
         <sys_name>Send to CHS Web Service</sys_name>
         <sys_overrides/>
         <sys_package display_value="Hotel" source="x_89842_hotel">12e9e3204f2032007c618fe18110c712</sys_package>
@@ -61,7 +68,7 @@
         <sys_scope display_value="Hotel">12e9e3204f2032007c618fe18110c712</sys_scope>
         <sys_update_name>sys_script_a885cd2b4f3c72007c618fe18110c7c4</sys_update_name>
         <sys_updated_by>admin</sys_updated_by>
-        <sys_updated_on>2017-02-13 15:17:23</sys_updated_on>
+        <sys_updated_on>2017-02-15 12:40:12</sys_updated_on>
         <template/>
         <when>async</when>
     </sys_script>
